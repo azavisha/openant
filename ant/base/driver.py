@@ -77,21 +77,7 @@ try:
 
         @classmethod
         def get_url(cls):
-            try:
-                path = '/sys/bus/usb-serial/devices'
-                for device in os.listdir(path):
-                    try:
-                        device_path = os.path.realpath(os.path.join(path, device))
-                        device_path = os.path.join(device_path, "../../")
-                        ven = int(open(os.path.join(device_path, 'idVendor')).read().strip(), 16)
-                        pro = int(open(os.path.join(device_path, 'idProduct')).read().strip(), 16)
-                        if ven == cls.ID_VENDOR or cls.ID_PRODUCT == pro:
-                            return os.path.join("/dev", device)
-                    except:
-                        continue
-                return None
-            except OSError:
-                return None
+            return "/dev/tty.ANTUSBStick.slabvcp"
 
         def open(self):
 
