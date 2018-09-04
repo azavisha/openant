@@ -77,7 +77,7 @@ try:
 
         @classmethod
         def get_url(cls):
-            return "/dev/tty.ANTUSBStick.slabvcp"
+            return "/dev/cu.ANTUSBStick.slabvcp"
 
         def open(self):
 
